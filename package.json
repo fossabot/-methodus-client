@@ -1,0 +1,28 @@
+{
+  "name": "@methodus/client",
+  "version": "0.0.2",
+  "description": "",
+  "main": "dist/methodus-client.js",
+  "scripts": {
+    "webpack": "./node_modules/.bin/webpack .",
+    "watch": "./node_modules/.bin/webpack . --watch",
+    "build": "tsc",
+    "serve": "webpack-dev-server",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm version patch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "reflect-metadata": "^0.1.10",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.5",
+    "webpack-system-register": "^1.5.1"
+  },
+  "dependencies": {}
+}
