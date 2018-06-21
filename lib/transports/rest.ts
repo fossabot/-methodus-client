@@ -111,13 +111,15 @@ export class Rest {
         }
 
         const options = {
-            method: verb,
+            cache: "default",
             credentials: "include",
             headers: Object.assign(headers, {
                 "Content-Type": "application/json",
             }),
+            method: verb,
             mode: "cors",
-            cache: "default",
+            redirect: "follow",
+
         };
 
         if (body && Object.keys(body).length > 0) {

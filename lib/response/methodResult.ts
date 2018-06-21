@@ -19,3 +19,5 @@ export class MethodResult<T= any> {
 }
 
 
+
+

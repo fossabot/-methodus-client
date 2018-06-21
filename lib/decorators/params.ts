@@ -11,7 +11,7 @@ function pushParams(target: MethodusClass, propertyKey: string, param: ParamsMap
         { type: "any" }));
 }
 
-function build(from: string, name?: string) {
+function build(from: string, name?: string, type?: any) {
     return (target: any, propertyKey: string, parameterIndex: number) => {
         if (name) {
             pushParams(target, propertyKey, {
@@ -25,8 +25,8 @@ function build(from: string, name?: string) {
     };
 }
 
-export function Body(name?: string) {
-    return build("body", name);
+export function Body(name?: string, type?: any) {
+    return build("body", name, type);
 }
 
 export function Param(name?: string) {

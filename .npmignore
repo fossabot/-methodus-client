@@ -4,7 +4,6 @@
 !/**/*.d.ts
 .git
 plugins
-lib
 tests
 tsconfig.json
 webpack.config.js
