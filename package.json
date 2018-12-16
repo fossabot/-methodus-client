@@ -3,6 +3,36 @@
   "version": "2.0.11",
   "description": "",
   "main": "dist/methodus-client.js",
+  "jest": {
+    "verbose": true,
+    "automock": false,
+    "setupFiles": [
+      "./tests/setupJest.ts"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testRegex": "/.*\\.spec.(ts)?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "coverageDirectory": "<rootDir>/coverage/",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover"
+    ],
+    "collectCoverage": true   
+  },
   "scripts": {
     "webpack": "./node_modules/.bin/webpack .",
     "watch": "./node_modules/.bin/webpack . --watch",
@@ -10,7 +40,7 @@
     "serve": "webpack-dev-server",
     "prepare": "npm run build",
     "prepublishOnly": "npm version patch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -i *.spec.ts --coverage"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +54,9 @@
     "webpack-system-register": "^1.5.1"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.10"
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "jest-fetch-mock": "^2.1.0",
+    "jesta": "^2.0.11"
   }
 }

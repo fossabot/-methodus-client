@@ -7,7 +7,7 @@ export class Contract {
 
     @M.Method(M.Verbs.Get, "/posts/:id/:name")
     public static async action1( @M.Param("id") id: number, @M.Param("name") name: string) {
-        return;
+        return ;
     }
 
     @M.Method(M.Verbs.Get, "/action2/:id/:name")
