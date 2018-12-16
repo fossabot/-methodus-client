@@ -1,0 +1,100 @@
+<html>
+
+<head>
+
+    <script src="../dist/methodus-client.js"></script>
+    <script src="../dist/client.js"></script>
+    <script>
+
+
+    </script>
+    <style>
+        p {
+            background-color: antiquewhite;
+            border: 2px solid gray;
+            padding: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>
+        @M.Method(M.Verbs.Get, '/posts/:id/:name')
+        <br /> public static async action1( @M.Param('id') id: number, @M.Param('name') name: string) { }
+        <br />
+        <br /> let result = await Contract.action1(15, 'roi');
+        <br />
+
+        <textarea id="action1"></textarea>
+    </p>
+    <hr />
+
+
+    <p>
+
+        @M.Method(M.Verbs.Get, '/action2/:id/:name')
+        <br /> public static async action2( @M.Param('id') id: number,@M.Param('name') name: string, @M.Query('size') size: number)
+        { }
+        <br />
+        <br /> const result2 = await Contract.action2(15, 'roi', 5);
+        <br />
+        <textarea id="action2"></textarea>
+    </p>
+    <hr />
+    <p>
+
+        @M.Method(M.Verbs.Post, '/api/action3/:action')
+        <br /> public static async action3( @M.Param('action') action, @M.Query('size') size, @M.Body('length') length) { }
+        <br />
+        <br />
+        <br /> const result3 = await Contract.action3(15, 'roi', 5);
+        <br />
+        <textarea id="action3"></textarea>
+    </p>
+    <hr />
+
+    <hr />
+
+
+    <p>
+        @M.Method(M.Verbs.Post, '/api/action4/xaction/:action')
+        <br /> public static async action4( @M.Param('action') action, @M.Headers('size') size, @M.Body('length') length) { }
+        <br
+        />
+        <br />
+        <br /> const result4 = await Contract.action4(15, 'roi', 5);
+        <br />
+        <textarea id="action4"></textarea>
+    </p>
+    <hr />
+
+
+
+
+
+
+    <p>
+
+        @M.Method(M.Verbs.Post, '/api/action5/xaction/:action')
+        <br /> public static async action5( @M.Param('action') action, @M.Cookies('size') size, @M.Body('length') length) { }
+        <br />
+        <br /> const result5 = await Contract.action5(15, 'roi', 5);
+        <br />
+        <textarea id="action5"></textarea>
+    </p>
+    <hr />
+
+
+
+
+
+
+</body>
+
+</html>
