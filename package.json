@@ -1,8 +1,33 @@
 {
   "name": "@methodus/client",
   "version": "2.0.11",
-  "description": "",
+  "description": "Browser library for Contract based API access",
   "main": "dist/methodus-client.js",
+  "scripts": {
+    "webpack": "./node_modules/.bin/webpack .",
+    "watch": "./node_modules/.bin/webpack . --watch",
+    "build": "tsc && npm run webpack",
+    "serve": "webpack-dev-server",
+    "prepare": "npm run build",
+    "pretest": "tsc",
+    "prepublishOnly": "npm version patch",
+    "test": "jest -i *.spec.ts --coverage",
+    "sonar": "sonar-scanner.bat -Dsonar.projectKey=nodulusteam_-methodus-client -Dsonar.organization=nodulusteam-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=ebd888eb856c222b3c5fe77a69b779e0e1c43b35"
+  },
+  "author": "@nodulusteam",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodulusteam/-methodus-client"
+  },
+  "keywords": [
+    "rest",
+    "client http",
+    "rpc",
+    "auto",
+    "generated",
+    "spa"
+  ],
   "jest": {
     "verbose": true,
     "automock": false,
@@ -33,32 +58,18 @@
     ],
     "collectCoverage": true
   },
-  "scripts": {
-    "webpack": "./node_modules/.bin/webpack .",
-    "watch": "./node_modules/.bin/webpack . --watch",
-    "build": "tsc && npm run webpack",
-    "serve": "webpack-dev-server",
-    "prepare": "npm run build",
-    "pretest": "tsc",
-    "prepublishOnly": "npm version patch",
-    "test": "jest -i *.spec.ts --coverage",
-    "sonar": "sonar-scanner.bat -Dsonar.projectKey=nodulusteam_-methodus-client -Dsonar.organization=nodulusteam-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=ebd888eb856c222b3c5fe77a69b779e0e1c43b35"
-  },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/node": "^8.0.53",
     "ts-loader": "^3.2.0",
     "tslint": "^5.8.0",
     "typescript": "^2.6.2",
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "jest-fetch-mock": "^2.1.0",
+    "jesta": "^2.0.11",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.5",
     "webpack-system-register": "^1.5.1"
   },
-  "dependencies": {
-    "@types/jest": "^23.3.10",
-    "jest": "^23.6.0",
-    "jest-fetch-mock": "^2.1.0",
-    "jesta": "^2.0.11"
-  }
+  "dependencies": {}
 }

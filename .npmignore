@@ -9,3 +9,8 @@ tsconfig.json
 webpack.config.js
 tslint.json
 yarn.lock
+coverage
+.scannerwork
+.vscode
+lib
+sonar-project.properties
