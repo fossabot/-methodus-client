@@ -12,5 +12,4 @@ yarn.lock
 coverage
 .scannerwork
 .vscode
-lib
 sonar-project.properties
