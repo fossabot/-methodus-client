@@ -1,4 +1,10 @@
 # Methodus Client
+![Quality gate](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=alert_status "Quality gate")
+![rating](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=sqale_rating "rating")
+![reliability](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=reliability_rating "reliability")
+![coverage](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=coverage "coverage")
+![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=vulnerabilities "coverage")
+
 
 ### Greetings,
 my fellow adventures developer, I welcome you into Methodus. 
