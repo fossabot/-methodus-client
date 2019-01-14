@@ -1,15 +1,15 @@
 import { MethodDescriptor, MethodType, MethodusClass, ParamsMap, Prototyped, Verbs } from "../commons";
 
 export class Rest {
-   
-    public static interceptor = function (options: any) { return; };
+
+    public static interceptor: (options: any) => {} | null;
     public options: any = {};
     public request: any;
     public uri: string;
     constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {
         this.uri = uri;
         this.options = this.parse(verb, paramsMap, args);
-        if (Rest.interceptor) {
+        if (Rest.interceptor !== null) {
             this.options = Rest.interceptor(this.options);
         }
         this.request = new Request(this.uri);
