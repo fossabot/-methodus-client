@@ -4,13 +4,9 @@
  */
 export function MethodConfigBase(name: string) {
     return (target: any) => {
-
-
-        const innerName = target.name || target.constructor.name;
+        const innerName = target.name || target.constructor.name;       
         //fix methodus
-        target.methodus[name] = target.methodus[innerName];
-
-
+        target.methodus[name] = target.methodus[innerName];      
         let proto = target.prototype || target.__proto__;
         // means its a static class , no prototype
         if (target.methodus) {

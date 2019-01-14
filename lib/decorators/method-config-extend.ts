@@ -7,21 +7,23 @@ import { debug } from "util";
 export function MethodConfigExtend(extendTarget: any, name?: string) {
     return (target: any) => {
         const filterKeys = ['length', 'caller', 'prototype', 'name', 'methodus', 'methodus_base', 'arguments'];
-        const trueName = name || target.name;
+        const trueName = name || target.name;      
         target.methodus[trueName] = JSON.parse(JSON.stringify(extendTarget.methodus_base));
         let inheritSettings: any = {};
         Object.getOwnPropertyNames(extendTarget.prototype.constructor).forEach((key) => {
             if (filterKeys.indexOf(key) === -1) {
                 const func = async (...args: any[]) => {
-                    args.push({ target, instruct: true });
+                    args.push({ target: target.methodus[trueName], instruct: true });
                     return await extendTarget.prototype.constructor[key].apply(target, args);
                 };
+
+              
                 inheritSettings[key] = func.bind(target);
             }
         });
-      
+
         Object.assign(target.prototype.constructor, inheritSettings);
-       
+
 
         const mTarget = target.methodus[trueName];
         const routePrefix = trueName.toLocaleLowerCase();
