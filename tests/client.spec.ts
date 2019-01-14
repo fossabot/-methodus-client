@@ -66,7 +66,7 @@ class ClientTest {
     @Given(['test Rest'], 'create interceptor')
     async createInterceptor() {
         Rest.intercept((message: any) => {
-
+            return message;
         })
     }
 

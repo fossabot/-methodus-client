@@ -47,13 +47,10 @@ export function Method(verb: Verbs, route: string) {
 
             if (args && args[args.length - 1] && args[args.length - 1].instruct) {
                 target = args[args.length - 1].target;
-
                 target.methodus = target.methodus || {};
                 name = target.name || target.constructor.name;
                 target.methodus[name] = target.methodus[name] || { _events: {}, _descriptors: {} };
-
                 mTarget = target.methodus[name];
-
                 metaObject = mTarget._descriptors[propertyKey];
                 paramsMap = metaObject.params as any;
                 paramsMap.sort((a: any, b: any) => {

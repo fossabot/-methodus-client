@@ -1,7 +1,8 @@
 import { MethodDescriptor, MethodType, MethodusClass, ParamsMap, Prototyped, Verbs } from "../commons";
 
 export class Rest {
-    public static interceptor?: Function;
+   
+    public static interceptor = function (options: any) { return; };
     public options: any = {};
     public request: any;
     public uri: string;
@@ -13,8 +14,8 @@ export class Rest {
         }
         this.request = new Request(this.uri);
     }
-    public static intercept(interceptor: Function) {
-        this.interceptor = interceptor;
+    public static intercept(interceptor: (options: any) => {}) {
+        Rest.interceptor = interceptor;
     }
 
     public prepare(url: string, method: Verbs, params: any[], body: any, query: any, headers: any) {
