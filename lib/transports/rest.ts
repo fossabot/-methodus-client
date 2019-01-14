@@ -2,14 +2,14 @@ import { MethodDescriptor, MethodType, MethodusClass, ParamsMap, Prototyped, Ver
 
 export class Rest {
 
-    public static interceptor: (options: any) => {} | null;
+    public static interceptor: (options: any) => {} | undefined;
     public options: any = {};
     public request: any;
     public uri: string;
     constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {
         this.uri = uri;
         this.options = this.parse(verb, paramsMap, args);
-        if (Rest.interceptor !== null) {
+        if (Rest.interceptor !== undefined) {
             this.options = Rest.interceptor(this.options);
         }
         this.request = new Request(this.uri);
