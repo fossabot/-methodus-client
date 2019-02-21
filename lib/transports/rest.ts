@@ -5,14 +5,15 @@ export class Rest {
     public static interceptor: (options: any) => {} | undefined;
     public options: any = {};
     public request: any;
-    public uri: string;
+   
     constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {
-        this.uri = uri;
+       
         this.options = this.parse(verb, paramsMap, args);
+        this.options.uri = uri;
         if (Rest.interceptor !== undefined) {
             this.options = Rest.interceptor(this.options);
         }
-        this.request = new Request(this.uri);
+        this.request = new Request(this.options.uri);
     }
     public static intercept(interceptor: (options: any) => {}) {
         Rest.interceptor = interceptor;
@@ -40,7 +41,7 @@ export class Rest {
             url = '.' + url;
         }
 
-        this.uri = url;
+        this.options.uri = url;
         this.request = new Request(url);
 
         const options = {
@@ -82,8 +83,8 @@ export class Rest {
             if (param.index !== undefined) {
                 switch (param.from) {
                     case "params":
-                        if (this.uri) {
-                            this.uri = this.uri.replace(":" + param.name, args[param.index]);
+                        if (this.options.uri) {
+                            this.options.uri = this.options.uri.replace(":" + param.name, args[param.index]);
                         }
                         break;
                     case "query":
@@ -139,7 +140,7 @@ export class Rest {
             }
         });
         if (queryString.length > 0) {
-            this.uri = this.uri + "?" + queryString.map((item: any) => {
+            this.options.uri = this.options.uri + "?" + queryString.map((item: any) => {
                 if (typeof item.value === "object") {
                     return `${item.name}=${encodeURIComponent(JSON.stringify(item.value))}`;
 
