@@ -1,14 +1,14 @@
-import { MethodDescriptor, MethodType, MethodusClass, ParamsMap, Prototyped, Verbs } from "../commons";
+import { ParamsMap, Verbs } from "../commons";
 
 export class Rest {
 
     public static interceptor: (options: any) => {} | undefined;
     public options: any = {};
     public request: any;
-   
-    constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {       
+
+    constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {
         this.options.uri = uri;
-        this.options = this.parse(verb, paramsMap, args);
+        this.parse(verb, paramsMap, args);
         if (Rest.interceptor !== undefined) {
             this.options = Rest.interceptor(this.options);
         }
@@ -151,9 +151,12 @@ export class Rest {
         }
 
         if (body && Object.keys(body).length > 0) {
-            Object.assign(options, { body: JSON.stringify(body) });
+            Object.assign(this.options, options, { body: JSON.stringify(body) });
+        } else {
+            Object.assign(this.options, options);
         }
-        return options;
+
+        return this.options;
     }
     public async send() {
         const response = await fetch(this.request, this.options);
