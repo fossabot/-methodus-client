@@ -6,10 +6,9 @@ export class Rest {
     public options: any = {};
     public request: any;
    
-    constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {
-       
-        this.options = this.parse(verb, paramsMap, args);
+    constructor(uri: string, verb: Verbs, paramsMap: ParamsMap[], args: any[]) {       
         this.options.uri = uri;
+        this.options = this.parse(verb, paramsMap, args);
         if (Rest.interceptor !== undefined) {
             this.options = Rest.interceptor(this.options);
         }
