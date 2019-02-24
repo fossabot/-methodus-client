@@ -1,6 +1,6 @@
 {
   "name": "@methodus/client",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": "Browser library for Contract based API access",
   "main": "dist/methodus-client.js",
   "scripts": {
