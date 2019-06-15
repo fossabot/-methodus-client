@@ -4,6 +4,7 @@
 ![reliability](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=reliability_rating "reliability")
 ![coverage](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=coverage "coverage")
 ![vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=nodulusteam_-methodus-client&metric=vulnerabilities "coverage")
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnodulusteam%2F-methodus-client.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnodulusteam%2F-methodus-client?ref=badge_shield)
 
 
 ### Greetings,
@@ -31,3 +32,7 @@ https://github.com/nodulusteam/-methodus-contracts
 
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnodulusteam%2F-methodus-client.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnodulusteam%2F-methodus-client?ref=badge_large)
